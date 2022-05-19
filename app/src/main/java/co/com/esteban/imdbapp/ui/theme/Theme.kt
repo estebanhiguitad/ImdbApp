@@ -5,6 +5,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColors(
     primary = PrimaryDark,
@@ -15,7 +17,8 @@ private val DarkColorPalette = darkColors(
 private val LightColorPalette = lightColors(
     primary = PrimaryLight,
     primaryVariant = PrimaryVariantLight,
-    secondary = Secondary
+    secondary = Secondary,
+
 
     /* Other default colors to override
     background = Color.White,
@@ -33,6 +36,11 @@ fun IMDBAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composabl
         DarkColorPalette
     } else {
         LightColorPalette
+    }
+    val systemController = rememberSystemUiController()
+
+    SideEffect {
+        systemController.setStatusBarColor(colors.primary)
     }
 
     MaterialTheme(
