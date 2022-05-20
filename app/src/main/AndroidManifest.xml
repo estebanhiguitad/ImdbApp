@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Imdbapp">
         <activity
-            android:name=".SplashActivity"
+            android:name=".start.activities.ImdbAppActivity"
             android:exported="true"
             android:theme="@style/Theme.Imdbapp">
             <intent-filter>
