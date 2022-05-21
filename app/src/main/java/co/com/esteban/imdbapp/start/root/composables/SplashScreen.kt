@@ -1,14 +1,10 @@
 package co.com.esteban.imdbapp.start.root.composables
 
 import android.content.res.Configuration
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
@@ -16,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import co.com.esteban.imdbapp.start.auxiliar.composables.AppName
 import co.com.esteban.imdbapp.ui.theme.IMDBAppTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -24,16 +21,11 @@ import kotlinx.coroutines.launch
 fun SplashScreen(afterSplashNavigateTo: () -> Unit) {
     Surface(
         modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(),
+            .fillMaxSize(),
         color = MaterialTheme.colors.primary
     ) {
         Box(contentAlignment = Alignment.Center) {
-            Text(
-                "IMDb",
-                modifier = Modifier.background(color = MaterialTheme.colors.primary),
-                style = MaterialTheme.typography.h1
-            )
+            AppName(MaterialTheme.typography.h1)
         }
     }
     val coroutineScope = rememberCoroutineScope()

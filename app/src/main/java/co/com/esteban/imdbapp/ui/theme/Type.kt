@@ -23,6 +23,21 @@ val Typography = Typography(
         fontFamily = OswaldFont,
         color = Secondary,
         fontSize = 80.sp
+    ),
+    h2 = TextStyle(
+        fontFamily = OswaldFont,
+        color = Secondary,
+        fontSize = 67.sp
+    ),
+    h3 = TextStyle(
+        fontFamily = OswaldFont,
+        color = Secondary,
+        fontSize = 54.sp
+    ),
+    button = TextStyle(
+        fontFamily = OswaldFont,
+        fontWeight = FontWeight.W500,
+        fontSize = 14.sp
     )
     /* Other default text styles to override
     button = TextStyle(

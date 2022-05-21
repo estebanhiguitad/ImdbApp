@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">imdbapp</string>
+    <string name="app_name">IMDb</string>
+    <string name="user_label">Usuario</string>
+    <string name="password_label">Contraseña</string>
+    <string name="forgot_your_password">¿Olvidaste la contraseña?</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="sign_in_alternative">O puedes ingresar con</string>
+    <string name="content_description_sign_in_alternative_apple">Autenticación con apple</string>
+    <string name="content_description_sign_in_alternative_facebook">Autenticación con facebook</string>
+    <string name="content_description_sign_in_alternative_google">Autenticación con google</string>
+    <string name="continue_as_guest">Continuar como invitado</string>
+    <string name="does_not_have_account">\"¿No tienes cuenta? \"</string>
+    <string name="sign_up">Regístrate</string>
 </resources>

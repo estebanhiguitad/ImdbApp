@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IMDb</string>
+    <string name="user_label">User</string>
+    <string name="password_label">Password</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="login">Login</string>
+    <string name="sign_in_alternative">Or sign in with</string>
+    <string name="content_description_sign_in_alternative_apple">Apple Authentication</string>
+    <string name="content_description_sign_in_alternative_facebook">Facebook Authentication</string>
+    <string name="content_description_sign_in_alternative_google">Google Authentication</string>
+    <string name="continue_as_guest">Continue as a Guest</string>
+    <string name="does_not_have_account">"Does not have Account? "</string>
+    <string name="sign_up">Sign Up</string>
+</resources>

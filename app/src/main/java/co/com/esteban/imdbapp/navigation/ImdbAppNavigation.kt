@@ -16,7 +16,14 @@ fun ImdbAppNavigation(navController: NavHostController) {
             }
         }
         composable(route = "login_form") {
-            LoginFormScreen()
+            LoginFormScreen{
+                navController.navigate("sign_up")
+            }
+        }
+        composable(route = "sign_up"){
+            SplashScreen {
+                navController.navigate("login_form")
+            }
         }
     }
 }
