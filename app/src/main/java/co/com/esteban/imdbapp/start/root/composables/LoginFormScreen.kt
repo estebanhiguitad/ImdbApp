@@ -27,19 +27,22 @@ fun LoginFormScreen(navigateToSignUpScreen: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(horizontal = 56.dp)
         ) {
-            val textUserValue by remember { mutableStateOf("") }
-            val textPasswordValue by remember { mutableStateOf("") }
+            var textUserValue by remember { mutableStateOf("") }
+            var textPasswordValue by remember { mutableStateOf("") }
             val enabledButton by remember { mutableStateOf(false) }
 
             AppName(textStyle = MaterialTheme.typography.h3)
-            TextFieldsInForm(textUserValue, textPasswordValue)
+            TextFieldsInForm(textUserValue, textPasswordValue,
+                { textUserValue = it },
+                { textPasswordValue = it }
+            )
             Text(
                 stringResource(R.string.forgot_your_password),
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.caption
             )
-            SignInButton(enabledButton)
+            SignInButton(enabledButton) { /*TODO*/ }
             Text(stringResource(R.string.sign_in_alternative))
             AlternativeSignInButtons()
             AnnotatedTextForSignUp(navigateToSignUpScreen)
@@ -53,29 +56,30 @@ fun LoginFormScreen(navigateToSignUpScreen: () -> Unit) {
 }
 
 @Composable
-private fun TextFieldsInForm(textUserValue: String, textPasswordValue: String) {
-    var textUserValue1 = textUserValue
-    var textPasswordValue1 = textPasswordValue
+private fun TextFieldsInForm(
+    textUserValue: String,
+    textPasswordValue: String,
+    onUserValueChange: (String) -> Unit,
+    onPasswordValueChange: (String) -> Unit
+) {
     TextFieldWithSeparatedLabel(
-        textUserValue1,
+        textUserValue,
         stringResource(R.string.user_label),
-        modifier = Modifier.padding(bottom = 20.dp)
-    ) {
-        textUserValue1 = it
-    }
+        modifier = Modifier.padding(bottom = 20.dp),
+        onTextFieldValueChange = onUserValueChange
+    )
     TextFieldWithSeparatedLabel(
-        textPasswordValue1,
+        textPasswordValue,
         stringResource(R.string.password_label),
-        modifier = Modifier.padding(bottom = 10.dp)
-    ) {
-        textPasswordValue1 = it
-    }
+        modifier = Modifier.padding(bottom = 10.dp),
+        onTextFieldValueChange = onPasswordValueChange
+    )
 }
 
 @Composable
-private fun SignInButton(enabledButton: Boolean) {
+private fun SignInButton(enabledButton: Boolean, onButtonClick: () -> Unit) {
     Button(
-        onClick = { /*TODO*/ },
+        onClick = onButtonClick,
         modifier = Modifier
             .height(90.dp)
             .padding(top = 30.dp)
@@ -111,10 +115,10 @@ private fun AlternativeSignInButtons() {
 @Composable
 private fun AnnotatedTextForSignUp(navigateToSignUpScreen: () -> Unit) {
     val annotatedText = buildAnnotatedString {
-        append("¿No tienes cuenta? ")
+        append(stringResource(id = R.string.does_not_have_account))
         pushStringAnnotation(tag = "action", annotation = "sign_up")
         withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-            append("Regístrate")
+            append(stringResource(id = R.string.sign_up))
         }
         pop()
     }
