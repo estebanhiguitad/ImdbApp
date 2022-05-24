@@ -14,7 +14,7 @@ import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.ui.theme.IMDBAppTheme
 
 @Composable
-fun AppName(
+internal fun AppName(
     textStyle: TextStyle,
     modifier: Modifier = Modifier
 ) {

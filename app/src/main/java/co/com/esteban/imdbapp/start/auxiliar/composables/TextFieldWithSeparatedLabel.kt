@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TextFieldWithSeparatedLabel(
+internal fun TextFieldWithSeparatedLabel(
     textValue: String,
     labelValue: String,
     modifier: Modifier = Modifier,
