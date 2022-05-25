@@ -11,14 +11,15 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 private val DarkColorPalette = darkColors(
     primary = PrimaryDark,
     primaryVariant = PrimaryVariantDark,
-    secondary = Secondary
+    secondary = Secondary,
+    onSecondary = OnSecondary
 )
 
 private val LightColorPalette = lightColors(
     primary = PrimaryLight,
     primaryVariant = PrimaryVariantLight,
     secondary = Secondary,
-
+    onSecondary = OnSecondary
 
     /* Other default colors to override
     background = Color.White,

@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import co.com.esteban.imdbapp.start.root.composables.LoginFormScreen
+import co.com.esteban.imdbapp.start.root.composables.SignInScreen
 import co.com.esteban.imdbapp.start.root.composables.SplashScreen
 
 @Composable
@@ -21,9 +22,9 @@ fun ImdbAppNavigation(navController: NavHostController) {
             }
         }
         composable(route = "sign_up"){
-            SplashScreen {
-                navController.navigate("login_form")
-            }
+            SignInScreen({
+                navController.navigateUp()
+            },{})
         }
     }
 }

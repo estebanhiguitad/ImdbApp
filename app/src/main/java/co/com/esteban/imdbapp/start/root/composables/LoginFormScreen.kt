@@ -38,13 +38,22 @@ fun LoginFormScreen(navigateToSignUpScreen: () -> Unit) {
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.caption
             )
-            SignInButton(enabledButton) { /*TODO*/ }
-            Text(stringResource(R.string.sign_in_alternative))
+            LargeStartButton(enabledButton, { /*TODO*/ }) {
+                Text(stringResource(R.string.login))
+            }
+            Text(
+                stringResource(R.string.sign_in_alternative),
+                modifier = Modifier.padding(top = 46.dp),
+                style = MaterialTheme.typography.caption.copy(color = MaterialTheme.colors.secondary)
+            )
             AlternativeSignInButtons()
             AnnotatedTextForSignUp(navigateToSignUpScreen)
             Text(
                 stringResource(R.string.continue_as_guest),
-                style = MaterialTheme.typography.caption.copy(fontWeight = FontWeight.Bold)
+                style = MaterialTheme.typography.subtitle1.copy(
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colors.secondary
+                )
             )
         }
 

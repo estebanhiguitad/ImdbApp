@@ -1,7 +1,6 @@
 package co.com.esteban.imdbapp.start.auxiliar.composables
 
 import android.content.res.Configuration
-import androidx.compose.foundation.background
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -21,7 +20,7 @@ internal fun AppName(
     Text(
         stringResource(R.string.app_name),
         style = textStyle,
-        modifier = modifier.background(color = MaterialTheme.colors.primary)
+        modifier = modifier
     )
 }
 

@@ -11,4 +11,10 @@
     <string name="continue_as_guest">Continuar como invitado</string>
     <string name="does_not_have_account">\"¿No tienes cuenta? \"</string>
     <string name="sign_up">Regístrate</string>
+    <string name="name_hint">Nombre</string>
+    <string name="email_hint">Correo Electrónico</string>
+    <string name="create_an_account">Crear una cuenta</string>
+    <string name="go_back_description">Ir Atrás</string>
+    <string name="password_lenght">La contraseña debe contener 8 caracteres</string>
+    <string name="accept">Aceptar</string>
 </resources>
