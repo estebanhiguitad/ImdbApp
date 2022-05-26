@@ -1,0 +1,6 @@
+[versions]
+composeVersion = "1.1.1"
+composeCompiler = "1.1.1"
+
+[libraries]
+compose-ui-ui = {module = "androidx.compose.ui:ui", version.ref = "composeVersion"}

@@ -1,6 +1,7 @@
 package co.com.esteban.imdbapp.start.root.composables
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -8,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -16,7 +18,7 @@ import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.start.auxiliar.composables.*
 
 @Composable
-fun LoginFormScreen(navigateToSignUpScreen: () -> Unit) {
+fun LoginFormScreen(navigateToSignUpScreen: () -> Unit, continueAsGuestClick: (Int) -> Unit) {
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.primary) {
         Column(
             verticalArrangement = Arrangement.Center,
@@ -48,12 +50,13 @@ fun LoginFormScreen(navigateToSignUpScreen: () -> Unit) {
             )
             AlternativeSignInButtons()
             AnnotatedTextForSignUp(navigateToSignUpScreen)
-            Text(
-                stringResource(R.string.continue_as_guest),
+            ClickableText(
+                text = buildAnnotatedString { append(stringResource(R.string.continue_as_guest)) },
                 style = MaterialTheme.typography.subtitle1.copy(
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colors.secondary
-                )
+                ),
+                onClick = continueAsGuestClick
             )
         }
 
@@ -63,5 +66,5 @@ fun LoginFormScreen(navigateToSignUpScreen: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun LoginFormScreenPreview() {
-    LoginFormScreen {}
+    LoginFormScreen({},{})
 }
