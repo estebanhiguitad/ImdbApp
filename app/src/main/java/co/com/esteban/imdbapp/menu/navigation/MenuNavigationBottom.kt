@@ -44,13 +44,13 @@ private val NavigationItems = listOf(
 internal fun MenuNavigationBottom(
     selectedItem: Screen,
     modifier: Modifier,
-    onNavigationSelected: () -> Unit
+    onNavigationSelected: (Screen) -> Unit
 ) {
     BottomNavigation(modifier = modifier) {
         NavigationItems.forEach {
             BottomNavigationItem(
                 selected = selectedItem == it.screen,
-                onClick = onNavigationSelected,
+                onClick = { onNavigationSelected(it.screen) },
                 icon = {
                     Icon(
                         imageVector = it.imageVector,

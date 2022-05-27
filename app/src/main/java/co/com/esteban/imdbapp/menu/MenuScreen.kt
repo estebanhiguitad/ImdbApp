@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -34,8 +35,7 @@ private fun content(controller: NavHostController): @Composable (PaddingValues) 
 private fun bottomMenuBar(navController: NavHostController): @Composable () -> Unit = {
     var selectedItem by remember { mutableStateOf<Screen>(Screen.Home) }
 
-    // Todo: Do this listener stable for compose
-    navController.addOnDestinationChangedListener { _, destination, _ ->
+    val listener = NavController.OnDestinationChangedListener { _, destination, _ ->
         when {
             destination.hierarchy.any { it.route == Screen.Home.route } -> {
                 selectedItem = Screen.Home
@@ -51,9 +51,10 @@ private fun bottomMenuBar(navController: NavHostController): @Composable () -> U
             }
         }
     }
+    navController.addOnDestinationChangedListener(listener)
 
     MenuNavigationBottom(selectedItem, Modifier.fillMaxWidth()) {
-        navController.navigate(selectedItem.route){
+        navController.navigate(it.route){
             launchSingleTop = true
             restoreState = true
 
@@ -63,3 +64,26 @@ private fun bottomMenuBar(navController: NavHostController): @Composable () -> U
         }
     }
 }
+
+//@Stable
+//@Composable
+//private fun NavController.currentScreenAsState(): State<Screen>{
+//    var selectedItem by remember { mutableStateOf<Screen>(Screen.Home) }
+//
+//    NavController.OnDestinationChangedListener { _, destination, _ ->
+//        when {
+//            destination.hierarchy.any { it.route == Screen.Home.route } -> {
+//                selectedItem = Screen.Home
+//            }
+//            destination.hierarchy.any { it.route == Screen.Search.route } -> {
+//                selectedItem = Screen.Search
+//            }
+//            destination.hierarchy.any { it.route == Screen.Play.route } -> {
+//                selectedItem = Screen.Play
+//            }
+//            destination.hierarchy.any { it.route == Screen.Profile.route } -> {
+//                selectedItem = Screen.Profile
+//            }
+//        }
+//    }
+//}

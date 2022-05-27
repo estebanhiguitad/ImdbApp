@@ -34,7 +34,11 @@ private sealed class LeafScreen(val route: String) {
 
 @Composable
 internal fun MenuNavigation(navHostController: NavHostController, modifier: Modifier) {
-    AnimatedNavHost(navController = navHostController, startDestination = Screen.Home.route) {
+    AnimatedNavHost(
+        navController = navHostController,
+        modifier = modifier,
+        startDestination = Screen.Home.route
+    ) {
         addHomeTopLevel()
         addSearchTopLevel()
         addPlayTopLevel()
