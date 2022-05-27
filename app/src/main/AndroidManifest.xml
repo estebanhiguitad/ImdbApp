@@ -12,7 +12,6 @@
         <activity
             android:name=".start.activities.ImdbAppActivity"
             android:exported="true"
-            android:theme="@style/Theme.Imdbapp"
             android:windowSoftInputMode="adjustResize"
             >
             <intent-filter>

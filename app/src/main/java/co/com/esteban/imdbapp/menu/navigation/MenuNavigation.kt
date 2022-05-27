@@ -1,19 +1,16 @@
-@file:OptIn(ExperimentalAnimationApi::class)
-
 package co.com.esteban.imdbapp.menu.navigation
 
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import co.com.esteban.imdbapp.menu.HomeScreen
 import co.com.esteban.imdbapp.menu.PlayScreen
 import co.com.esteban.imdbapp.menu.ProfileScreen
 import co.com.esteban.imdbapp.menu.SearchScreen
-import com.google.accompanist.navigation.animation.AnimatedNavHost
 
 
 internal sealed class Screen(val route: String) {
@@ -34,7 +31,7 @@ private sealed class LeafScreen(val route: String) {
 
 @Composable
 internal fun MenuNavigation(navHostController: NavHostController, modifier: Modifier) {
-    AnimatedNavHost(
+    NavHost(
         navController = navHostController,
         modifier = modifier,
         startDestination = Screen.Home.route
@@ -82,25 +79,25 @@ private fun NavGraphBuilder.addProfileTopLevel() {
     }
 }
 
-private fun NavGraphBuilder.addHome(root: Screen.Home) {
+private fun NavGraphBuilder.addHome(root: Screen) {
     composable(route = LeafScreen.Home.createRoute(root)) {
         HomeScreen()
     }
 }
 
-private fun NavGraphBuilder.addSearch(root: Screen.Search) {
+private fun NavGraphBuilder.addSearch(root: Screen) {
     composable(route = LeafScreen.Search.createRoute(root)) {
         SearchScreen()
     }
 }
 
-private fun NavGraphBuilder.addPlay(root: Screen.Play) {
+private fun NavGraphBuilder.addPlay(root: Screen) {
     composable(route = LeafScreen.Play.createRoute(root)) {
         PlayScreen()
     }
 }
 
-private fun NavGraphBuilder.addProfile(root: Screen.Profile) {
+private fun NavGraphBuilder.addProfile(root: Screen) {
     composable(route = LeafScreen.Profile.createRoute(root)) {
         ProfileScreen()
     }
