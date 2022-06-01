@@ -34,6 +34,11 @@ val Typography = Typography(
         color = Secondary,
         fontSize = 54.sp
     ),
+    h5 = TextStyle(
+        fontFamily = OswaldFont,
+        color = Secondary,
+        fontSize = 28.sp
+    ),
     button = TextStyle(
         fontFamily = OswaldFont,
         fontWeight = FontWeight.W500,

@@ -1,9 +1,9 @@
 [versions]
 composeVersion = "1.1.1"
+composeConstraintVersion = "1.0.1"
 composeCompiler = "1.1.1"
-accompanistNavigationAnimationVersion = "0.23.1"
 
 [libraries]
 compose-ui-ui = {module = "androidx.compose.ui:ui", version.ref = "composeVersion"}
 compose-foundation-layout = {module = "androidx.compose.foundation:foundation-layout", version.ref = "composeVersion"}
-accompanist-navigation-animation = {module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanistNavigationAnimationVersion"}
+compose-constraint-layout = {module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "composeConstraintVersion"}

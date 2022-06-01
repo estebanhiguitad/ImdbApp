@@ -21,4 +21,6 @@
     <string name="search_menu_content_description">Search in Main Menu</string>
     <string name="play_menu_content_description">Play in Main Menu</string>
     <string name="profile_menu_content_description">Account in Main Menu</string>
+    <string name="home_movie_title">Stranger Things</string>
+    <string name="home_movie_caption">Trailer official</string>
 </resources>
