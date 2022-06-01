@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.menu
+package co.com.esteban.imdbapp.menu.home.screen.auxiliar.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -22,7 +22,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import co.com.esteban.imdbapp.R
 
 @Composable
-internal fun HomeScreen() {
+internal fun HeaderForHomeMenu() {
     ConstraintLayout {
         val constraintLayoutScope = this
         val banner = constraintLayoutScope.createRef()
@@ -76,6 +76,6 @@ internal fun HomeScreen() {
 
 @Preview(showBackground = true, device = Devices.NEXUS_6P, showSystemUi = true)
 @Composable
-fun HomeScreenPreview() {
-    HomeScreen()
+fun HeaderForHomeMenuPreview() {
+    HeaderForHomeMenu()
 }
