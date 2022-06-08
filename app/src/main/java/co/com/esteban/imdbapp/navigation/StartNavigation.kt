@@ -12,7 +12,7 @@ import co.com.esteban.imdbapp.start.root.composables.SignInScreen
 import co.com.esteban.imdbapp.start.root.composables.SplashScreen
 
 @Composable
-fun ImdbAppNavigation(navController: NavHostController) {
+fun StartNavigation(navController: NavHostController) {
     NavHost(navController = navController, startDestination = "splash") {
         navigation("home_screen/home_screen", "home_screen") {
             activity("menu") {
