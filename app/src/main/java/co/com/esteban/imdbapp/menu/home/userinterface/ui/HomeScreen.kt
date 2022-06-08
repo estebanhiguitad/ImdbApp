@@ -18,7 +18,7 @@ internal fun HomeScreen() {
     Column(
         modifier = Modifier
             .verticalScroll(scrollable)
-            .padding(bottom = 50.dp)
+            .padding(bottom = 20.dp)
     ) {
         HeaderForHomeMenu()
         PanelMovieList(movieTopList)

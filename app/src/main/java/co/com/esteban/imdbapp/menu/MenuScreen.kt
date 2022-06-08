@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
@@ -24,7 +25,7 @@ internal fun MenuScreen() {
 }
 
 private fun content(controller: NavHostController): @Composable (PaddingValues) -> Unit = {
-    Row(modifier = Modifier.fillMaxSize()) {
+    Row(modifier = Modifier.padding(it).fillMaxSize()) {
         MenuNavigation(
             navHostController = controller,
             modifier = Modifier
