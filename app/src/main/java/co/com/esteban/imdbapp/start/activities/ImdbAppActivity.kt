@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.compose.rememberNavController
-import co.com.esteban.imdbapp.navigation.StartNavigation
+import co.com.esteban.imdbapp.start.navigation.StartNavigation
 import co.com.esteban.imdbapp.ui.theme.IMDBAppTheme
 
 @ExperimentalAnimationApi
