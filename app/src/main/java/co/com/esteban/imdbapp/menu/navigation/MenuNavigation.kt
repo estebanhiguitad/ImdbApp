@@ -1,9 +1,7 @@
 package co.com.esteban.imdbapp.menu.navigation
 
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -11,7 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import co.com.esteban.imdbapp.menu.PlayScreen
 import co.com.esteban.imdbapp.menu.ProfileScreen
-import co.com.esteban.imdbapp.menu.SearchScreen
+import co.com.esteban.imdbapp.menu.search.SearchScreen
 import co.com.esteban.imdbapp.menu.home.userinterface.ui.HomeScreen
 
 

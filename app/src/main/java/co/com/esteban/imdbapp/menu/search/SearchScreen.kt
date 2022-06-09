@@ -1,21 +1,46 @@
-package co.com.esteban.imdbapp.menu
+package co.com.esteban.imdbapp.menu.search
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Search
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-internal fun SearchScreen(){
+internal fun SearchScreen() {
     Column {
-        Surface(modifier = Modifier.height(100.dp)) {
+        var searchValue by remember { mutableStateOf("") }
+        Surface(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp),
+            color = MaterialTheme.colors.surface
+        ) {
+            TextField(
+                value = searchValue,
+                onValueChange = {
+                    searchValue = it
+                },
+                leadingIcon = { Icon(Icons.Outlined.Search, "") },
+                shape = MaterialTheme.shapes.small,
+                colors = TextFieldDefaults.textFieldColors(
+                    focusedLabelColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
+                    disabledIndicatorColor = Color.Transparent,
+                    focusedIndicatorColor = Color.Transparent,
+                    leadingIconColor = MaterialTheme.colors.onBackground,
+                    cursorColor = MaterialTheme.colors.onBackground,
+                    textColor = MaterialTheme.colors.onBackground,
+                    backgroundColor = MaterialTheme.colors.onSurface
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 30.dp, vertical = 20.dp)
+            )
 
         }
         Surface(color = MaterialTheme.colors.onSurface, modifier = Modifier.fillMaxSize()) {
