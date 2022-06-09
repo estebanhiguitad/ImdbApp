@@ -1,5 +1,6 @@
 package co.com.esteban.imdbapp.menu.navigation
 
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -10,9 +11,11 @@ import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import co.com.esteban.imdbapp.R
 
 private data class HomeNavigationItem(
@@ -40,13 +43,16 @@ private val NavigationItems = listOf(
     ),
 )
 
+
 @Composable
 internal fun MenuNavigationBottom(
     selectedItem: Screen,
     modifier: Modifier,
     onNavigationSelected: (Screen) -> Unit
 ) {
-    BottomNavigation(modifier = modifier) {
+    BottomNavigation(
+        modifier = modifier.clip(RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp))
+    ) {
         NavigationItems.forEach {
             BottomNavigationItem(
                 selected = selectedItem == it.screen,
