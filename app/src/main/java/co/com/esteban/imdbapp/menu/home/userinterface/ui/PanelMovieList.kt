@@ -19,7 +19,11 @@ import co.com.esteban.imdbapp.menu.home.userinterface.models.Movie
 @Composable
 fun PanelMovieList(movieTopList: List<Movie>) {
     Column(modifier = Modifier.padding(top = 20.dp)) {
-        Divider(thickness = 14.dp, modifier = Modifier.paddingFromBaseline(0.dp))
+        Divider(
+            thickness = 14.dp,
+            modifier = Modifier.paddingFromBaseline(0.dp),
+            color = MaterialTheme.colors.onSurface
+        )
         QuoteText()
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(20.dp),
