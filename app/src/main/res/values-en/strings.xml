@@ -23,4 +23,5 @@
     <string name="profile_menu_content_description">Account in Main Menu</string>
     <string name="home_movie_title">Stranger Things</string>
     <string name="home_movie_caption">Trailer official</string>
+    <string name="search_in_imdb">Buscar IMDb</string>
 </resources>
