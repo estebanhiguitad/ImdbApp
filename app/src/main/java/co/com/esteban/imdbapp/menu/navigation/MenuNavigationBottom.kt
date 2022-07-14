@@ -43,11 +43,10 @@ private val NavigationItems = listOf(
     ),
 )
 
-
 @Composable
 internal fun MenuNavigationBottom(
     selectedItem: Screen,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     onNavigationSelected: (Screen) -> Unit
 ) {
     BottomNavigation(
