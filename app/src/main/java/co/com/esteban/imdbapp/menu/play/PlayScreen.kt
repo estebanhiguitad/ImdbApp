@@ -1,9 +1,15 @@
 package co.com.esteban.imdbapp.menu
 
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
 @Composable
 internal fun PlayScreen(){
-    Text("PLay Screen")
+    Button(onClick = {
+        //
+    }) {
+        Text("Play Screen")
+        Text(" Click on it")
+    }
 }

@@ -16,3 +16,4 @@ rootProject.name = "imdbapp"
 include ':app'
 
 enableFeaturePreview("VERSION_CATALOGS")
+include ':testComponents'

@@ -7,7 +7,10 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.printToLog
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import co.com.bootcamp.testcomponents.assertColor
 import co.com.esteban.imdbapp.menu.navigation.MenuNavigationBottom
 import co.com.esteban.imdbapp.menu.navigation.Screen
 import co.com.esteban.imdbapp.ui.theme.IMDBAppTheme
@@ -42,12 +45,11 @@ class MenuNavigationTest {
         }
 
         // then
+        composeRule.onRoot(useUnmergedTree = true).printToLog("bottomNavigation")
         val node = composeRule.onNodeWithTag("bottomNavigation")
         val bitmap = node.captureToImage().asAndroidBitmap()
         val bitmapColor = bitmap.getColor(0, 100)
         val expectedColor = Color(0xFFfbbd36)
         assertColor(bitmapColor, expectedColor)
     }
-
-    //Todo: Create a new test for backgroud color verification
 }
