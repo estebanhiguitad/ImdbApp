@@ -1,11 +1,7 @@
-package co.com.bootcamp.testcomponents
+package co.com.esteban.imdbapp
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.ui.graphics.Color
 
-
-@RequiresApi(Build.VERSION_CODES.O)
 fun assertColor(graphicsColor: android.graphics.Color, expectedColor: Color){
     val color = Color(
         graphicsColor.red(), graphicsColor.green(),

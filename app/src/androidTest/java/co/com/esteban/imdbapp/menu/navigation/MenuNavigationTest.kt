@@ -4,16 +4,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.test.*
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import co.com.bootcamp.testcomponents.assertColor
-import co.com.esteban.imdbapp.menu.activities.MenuActivity
+import co.com.esteban.imdbapp.R
+import co.com.esteban.imdbapp.assertColor
 import co.com.esteban.imdbapp.ui.theme.IMDBAppTheme
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -52,9 +50,11 @@ class MenuNavigationTest {
     @Test
     fun testBottomMenu_has4Items_success() {
         // given
-        val expectedChildren = 4
+        var contentDescription = ""
+
         composeRule.setContent {
             IMDBAppTheme {
+                contentDescription = stringResource(id = R.string.search_menu_content_description)
 
                 // when
                 MenuNavigationBottom(
@@ -66,9 +66,8 @@ class MenuNavigationTest {
         }
 
         // Then
-        composeRule.onNodeWithTag("bottomNavigation")
-            .onChildren().assertCountEquals(expectedChildren)
-
+        composeRule.onNodeWithContentDescription(contentDescription).onSiblings()
+            .assertCountEquals(3)
     }
 }
 
