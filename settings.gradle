@@ -12,8 +12,9 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "imdbapp"
-include ':app'
 
+rootProject.name = "imdbapp"
 enableFeaturePreview("VERSION_CATALOGS")
+
+include ':app'
 include ':testComponents'

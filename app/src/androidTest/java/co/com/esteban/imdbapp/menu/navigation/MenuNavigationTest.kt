@@ -1,18 +1,13 @@
-package co.com.esteban.imdbapp
+package co.com.esteban.imdbapp.menu.navigation
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.test.captureToImage
+import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.onRoot
-import androidx.compose.ui.test.printToLog
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import co.com.bootcamp.testcomponents.assertColor
-import co.com.esteban.imdbapp.menu.navigation.MenuNavigationBottom
-import co.com.esteban.imdbapp.menu.navigation.Screen
 import co.com.esteban.imdbapp.ui.theme.IMDBAppTheme
 import org.junit.Rule
 import org.junit.Test
@@ -30,7 +25,7 @@ class MenuNavigationTest {
     val composeRule = createComposeRule()
 
     @Test
-    fun testSplash_hasTextForIMDb_Success() {
+    fun testBottomMenu_hasPrimaryBackgroundColor_success() {
         // given
         composeRule.setContent {
             IMDBAppTheme {
@@ -52,4 +47,27 @@ class MenuNavigationTest {
         val expectedColor = Color(0xFFfbbd36)
         assertColor(bitmapColor, expectedColor)
     }
+
+    @Test
+    fun testBottomMenu_has4Items_success() {
+        // given
+        val expectedChildren = 4
+        composeRule.setContent {
+            IMDBAppTheme {
+
+                // when
+                MenuNavigationBottom(
+                    selectedItem = Screen.Home,
+                    modifier = Modifier.testTag("bottomNavigation"),
+                    onNavigationSelected = {}
+                )
+            }
+        }
+
+        // Then
+        composeRule.onNodeWithTag("bottomNavigation")
+            .onChildren().assertCountEquals(expectedChildren)
+
+    }
 }
+

@@ -7,8 +7,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import co.com.esteban.imdbapp.menu.PlayScreen
-import co.com.esteban.imdbapp.menu.ProfileScreen
+import co.com.esteban.imdbapp.menu.play.PlayScreen
+import co.com.esteban.imdbapp.menu.profile.screen.ProfileScreen
 import co.com.esteban.imdbapp.menu.search.SearchScreen
 import co.com.esteban.imdbapp.menu.home.userinterface.ui.HomeScreen
 

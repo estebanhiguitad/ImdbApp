@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.menu
+package co.com.esteban.imdbapp.menu.profile.screen
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Card
@@ -21,7 +21,7 @@ internal fun UserPreferencesItem() {
         .size(120.dp)
         .testTag("First Item")) {
         Surface {
-            Text("Calificar y obtener calificaciones")
+            Text("  Calificar y obtener calificaciones")
         }
         Text("Calificaciones")
         Text("0")

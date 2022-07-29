@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.owasp.dependencycheck'
 }
 
 android {
@@ -45,9 +46,15 @@ android {
     }
 }
 
+dependencyCheck {
+    formats=['XML', 'HTML']
+    analyzers {
+        assemblyEnabled=false
+    }
+}
+
 dependencies {
-
-
+    implementation 'org.owasp:dependency-check-gradle:7.1.1'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation libs.compose.ui.ui
     implementation libs.compose.foundation.layout
