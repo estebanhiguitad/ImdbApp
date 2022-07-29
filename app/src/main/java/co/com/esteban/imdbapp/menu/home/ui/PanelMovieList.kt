@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.menu.home.userinterface.ui
+package co.com.esteban.imdbapp.menu.home.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import co.com.esteban.imdbapp.menu.home.userinterface.models.Movie
+import co.com.esteban.imdbapp.menu.home.models.Movie
 
 @Composable
 fun PanelMovieList(movieTopList: List<Movie>) {

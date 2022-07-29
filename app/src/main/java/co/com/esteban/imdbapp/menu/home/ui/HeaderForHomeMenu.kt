@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.menu.home.userinterface.ui
+package co.com.esteban.imdbapp.menu.home.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*

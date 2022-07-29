@@ -10,7 +10,7 @@ import androidx.navigation.navigation
 import co.com.esteban.imdbapp.menu.play.PlayScreen
 import co.com.esteban.imdbapp.menu.profile.screen.ProfileScreen
 import co.com.esteban.imdbapp.menu.search.SearchScreen
-import co.com.esteban.imdbapp.menu.home.userinterface.ui.HomeScreen
+import co.com.esteban.imdbapp.menu.home.ui.HomeScreen
 
 
 internal sealed class Screen(val route: String) {

@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.menu.home.userinterface.models
+package co.com.esteban.imdbapp.menu.home.models
 
 data class Movie(
     val title: String,
