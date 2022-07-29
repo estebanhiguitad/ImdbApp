@@ -18,10 +18,11 @@
     <string name="password_lenght">La contraseña debe contener 8 caracteres</string>
     <string name="accept">Aceptar</string>
     <string name="home_menu_content_description">House in Main Menu</string>
-    <string name="search_menu_content_description">Search in Main Menu</string>
     <string name="play_menu_content_description">Play in Main Menu</string>
     <string name="profile_menu_content_description">Account in Main Menu</string>
     <string name="home_movie_title">Stranger Things</string>
     <string name="home_movie_caption">Trailer official</string>
     <string name="search_in_imdb">Buscar IMDb</string>
+    <string name="best_selections_title">Las mejores selecciones</string>
+    <string name="search_menu_content_description">Search in Main Menu</string>
 </resources>

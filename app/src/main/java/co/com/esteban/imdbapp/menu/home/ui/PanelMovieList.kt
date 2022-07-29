@@ -13,7 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.menu.home.models.Movie
 
 @Composable
@@ -84,16 +87,27 @@ private fun QuoteText() {
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.padding(top = 14.dp, start = 30.dp)
     ) {
-        Spacer(
-            modifier = Modifier
-                .background(
-                    color = MaterialTheme.colors.primary,
-                    MaterialTheme.shapes.medium
-                )
-                .height(26.dp)
-                .width(8.dp)
-        )
+        Surface {
+            Spacer(
+                modifier = Modifier
+                    .background(
+                        color = MaterialTheme.colors.primary,
+                        MaterialTheme.shapes.medium
+                    )
+                    .height(26.dp)
+                    .width(8.dp)
+            )
+        }
         Spacer(modifier = Modifier.width(10.dp))
-        Text(text = "Las mejores selecciones", style = MaterialTheme.typography.h6)
+        Text(
+            text = stringResource(R.string.best_selections_title),
+            style = MaterialTheme.typography.h6
+        )
     }
+}
+
+@Preview
+@Composable
+fun QuoteTextPreview() {
+    QuoteText()
 }
