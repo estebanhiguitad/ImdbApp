@@ -45,7 +45,7 @@ class ProfileTest {
             }
         }
 
-        composeRule.onNode(hasAnyChild(hasTestTag("First Item")))
+        composeRule.onNode(hasTestTag("First Item"))
             .onChildren()
             .assertCountEquals(3)
     }
