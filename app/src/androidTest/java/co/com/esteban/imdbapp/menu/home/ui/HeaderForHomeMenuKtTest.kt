@@ -18,7 +18,6 @@ class HeaderForHomeMenuKtTest {
             HeaderForHomeMenu()
         }
 
-
         val posterNode = composeRule.onRoot().onChild().onChildAt(2).getBoundsInRoot()
         val descriptionNode = composeRule.onRoot().onChild().onChildAt(4).getBoundsInRoot()
         assertEquals(posterNode.bottom, descriptionNode.bottom)
