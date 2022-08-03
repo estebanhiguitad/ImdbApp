@@ -8,6 +8,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.unit.dp
 import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.assertColor
+import co.com.esteban.imdbapp.menu.home.models.MovieBuilder
 import co.com.esteban.imdbapp.ui.theme.IMDBAppTheme
 import org.junit.Rule
 import org.junit.Test
@@ -56,5 +57,23 @@ class PanelMovieListTest {
 
         val capture = composeRule.onRoot().onChildAt(0).captureToImage().asAndroidBitmap()
         assertColor(capture.getColor(10, 10), Color(0xFFfbbd36))
+    }
+
+    @Test
+    fun testLstSizeIs3() {
+        composeRule.setContent {
+            IMDBAppTheme {
+                PanelMovieList(
+                    movieTopList = listOf(
+                        MovieBuilder().build(),
+                        MovieBuilder().withTitle("Dark").build(),
+                        MovieBuilder().withTitle("Ozark").build()
+                    )
+                )
+            }
+        }
+
+        composeRule.onNode(hasText("Dark")).onParent()
+            .onParent().onSiblings().assertCountEquals(2)
     }
 }
