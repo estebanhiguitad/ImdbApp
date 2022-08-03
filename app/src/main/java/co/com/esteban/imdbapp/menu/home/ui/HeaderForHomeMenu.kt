@@ -52,7 +52,7 @@ internal fun HeaderForHomeMenu() {
         ) {
             Image(
                 painter = painterResource(R.drawable.stranger_things_poster),
-                contentDescription = "",
+                contentDescription = "Poster movie",
                 modifier = Modifier
                     .height(180.dp)
                     .alignBy(LastBaseline)
