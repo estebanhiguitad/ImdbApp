@@ -15,7 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-internal fun LoginAlternativesButton(
+internal fun LoginOpenIdConnectButton(
     drawable: Int,
     contentDescription: String,
     onButtonAlternativeAuthenticationClick: () -> Unit

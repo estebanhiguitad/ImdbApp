@@ -39,15 +39,15 @@ internal fun TextFieldsInForm(
 @Composable
 internal fun AlternativeSignInButtons() {
     Row(modifier = Modifier.fillMaxWidth()) {
-        LoginAlternativesButton(
+        LoginOpenIdConnectButton(
             R.drawable.apple_logo,
             stringResource(R.string.content_description_sign_in_alternative_apple)
         ) { /*TODO*/ }
-        LoginAlternativesButton(
+        LoginOpenIdConnectButton(
             R.drawable.facebook_logo,
             stringResource(R.string.content_description_sign_in_alternative_facebook)
         ) { /*TODO*/ }
-        LoginAlternativesButton(
+        LoginOpenIdConnectButton(
             R.drawable.google_logo,
             stringResource(R.string.content_description_sign_in_alternative_google)
         ) { /*TODO*/ }
