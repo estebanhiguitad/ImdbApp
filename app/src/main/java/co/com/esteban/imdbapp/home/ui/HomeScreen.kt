@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.menu.home.ui
+package co.com.esteban.imdbapp.home.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import co.com.esteban.imdbapp.R
-import co.com.esteban.imdbapp.menu.home.models.Movie
+import co.com.esteban.imdbapp.home.models.Movie
 
 @Composable
 internal fun HomeScreen() {
