@@ -7,10 +7,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import co.com.esteban.imdbapp.menu.play.PlayScreen
-import co.com.esteban.imdbapp.menu.profile.screen.ProfileScreen
-import co.com.esteban.imdbapp.menu.search.SearchScreen
-import co.com.esteban.imdbapp.home.ui.HomeScreen
+import co.com.esteban.imdbapp.play.PlayScreen
+import co.com.esteban.imdbapp.profile.view.ProfileScreen
+import co.com.esteban.imdbapp.search.SearchScreen
+import co.com.esteban.imdbapp.home.view.HomeScreen
 
 
 internal sealed class Screen(val route: String) {

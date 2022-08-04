@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.home.ui
+package co.com.esteban.imdbapp.home.view
 
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.test.*

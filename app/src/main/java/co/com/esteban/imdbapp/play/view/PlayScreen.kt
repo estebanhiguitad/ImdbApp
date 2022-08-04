@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.menu.play
+package co.com.esteban.imdbapp.play
 
 import androidx.compose.material.Button
 import androidx.compose.material.Text

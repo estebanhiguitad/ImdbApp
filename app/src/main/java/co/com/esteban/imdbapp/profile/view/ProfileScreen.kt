@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.menu.profile.screen
+package co.com.esteban.imdbapp.profile.view
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Card

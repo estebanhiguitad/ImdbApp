@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.home.ui
+package co.com.esteban.imdbapp.home.view
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asAndroidBitmap
@@ -8,7 +8,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.unit.dp
 import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.assertColor
-import co.com.esteban.imdbapp.home.models.MovieBuilder
+import co.com.esteban.imdbapp.home.model.MovieBuilder
 import co.com.esteban.imdbapp.ui.theme.IMDBAppTheme
 import org.junit.Rule
 import org.junit.Test

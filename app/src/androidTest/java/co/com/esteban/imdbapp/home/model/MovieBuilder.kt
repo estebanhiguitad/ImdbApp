@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.home.models
+package co.com.esteban.imdbapp.home.model
 
 import co.com.esteban.imdbapp.R
 

@@ -1,4 +1,4 @@
-package co.com.esteban.imdbapp.menu.search
+package co.com.esteban.imdbapp.search
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*

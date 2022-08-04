@@ -4,7 +4,7 @@ import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.unit.dp
-import co.com.esteban.imdbapp.menu.profile.screen.UserPreferencesItem
+import co.com.esteban.imdbapp.profile.view.UserPreferencesItem
 import co.com.esteban.imdbapp.ui.theme.IMDBAppTheme
 import org.junit.Rule
 import org.junit.Test
