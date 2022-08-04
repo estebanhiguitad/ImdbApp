@@ -25,4 +25,6 @@
     <string name="search_in_imdb">Buscar IMDb</string>
     <string name="best_selections_title">Las mejores selecciones</string>
     <string name="search_menu_content_description">Search in Main Menu</string>
+    <string name="content_description_play_or_stop">Play or stop movie icon</string>
+    <string name="content_description_poster_movie">Poster movie</string>
 </resources>

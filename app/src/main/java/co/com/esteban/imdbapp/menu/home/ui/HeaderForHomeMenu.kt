@@ -31,7 +31,7 @@ internal fun HeaderForHomeMenu() {
         Box(contentAlignment = Alignment.Center, modifier = Modifier.constrainAs(banner) {}) {
             Image(
                 painter = painterResource(id = R.drawable.banner_stranger_things),
-                contentDescription = "",
+                contentDescription = "Banner",
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(230.dp),
@@ -39,7 +39,7 @@ internal fun HeaderForHomeMenu() {
             )
             Icon(
                 imageVector = Icons.Filled.PlayCircle,
-                contentDescription = "",
+                contentDescription = stringResource(R.string.content_description_play_or_stop),
                 modifier = Modifier.size(50.dp),
                 tint = MaterialTheme.colors.background
             )
@@ -52,7 +52,7 @@ internal fun HeaderForHomeMenu() {
         ) {
             Image(
                 painter = painterResource(R.drawable.stranger_things_poster),
-                contentDescription = "Poster movie",
+                contentDescription = stringResource(R.string.content_description_poster_movie),
                 modifier = Modifier
                     .height(180.dp)
                     .alignBy(LastBaseline)
