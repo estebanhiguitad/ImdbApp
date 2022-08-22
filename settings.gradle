@@ -17,3 +17,5 @@ rootProject.name = "imdbapp"
 enableFeaturePreview("VERSION_CATALOGS")
 
 include ':app'
+include ':features'
+include ':features:home'
