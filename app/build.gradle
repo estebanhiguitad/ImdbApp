@@ -59,6 +59,8 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.5.1'
     implementation "androidx.navigation:navigation-compose:$navigation_version"
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
 
     testImplementation 'junit:junit:4.13.2'
 

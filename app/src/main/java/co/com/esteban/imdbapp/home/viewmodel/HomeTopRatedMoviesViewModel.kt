@@ -4,19 +4,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.home.model.Movie
+import co.com.esteban.imdbapp.home.model.repository.MovieRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-internal class HomeTopRatedMoviesViewModel : ViewModel() {
-    private val _state = MutableStateFlow(HomeScreenViewModelState())
-    val state = _state.map {
+internal class HomeTopRatedMoviesViewModel(private val repository: MovieRepository) : ViewModel() {
+    private val _state = MutableStateFlow(HomeScreenViewModelStateHolder())
+    val state: StateFlow<HomeScreenState> = _state.map {
         it.toUiState()
     }.stateIn(viewModelScope, SharingStarted.Eagerly, _state.value.toUiState())
 
@@ -26,19 +28,11 @@ internal class HomeTopRatedMoviesViewModel : ViewModel() {
 
     private fun getMovies(dispatcher: CoroutineDispatcher = Dispatchers.Default) {
         viewModelScope.launch(dispatcher) {
-            delay(3000)
             try {
-                val title = "Stranger Things"
-                val rate = "4.3"
-                val poster = R.drawable.stranger_things_poster
-                val movies = listOf(
-                    Movie(title, rate, poster, ""),
-                    Movie(title, rate, poster, ""),
-                    Movie(title, rate, poster, ""),
-                    Movie(title, rate, poster, "")
-                )
-                _state.update {
-                    it.copy(movieList = movies)
+                repository.getTopRated().collect { movieList ->
+                    _state.update {
+                        it.copy(movieList = movieList)
+                    }
                 }
             } catch (e: Exception) {
                 _state.update {
@@ -48,7 +42,7 @@ internal class HomeTopRatedMoviesViewModel : ViewModel() {
         }
     }
 
-    private data class HomeScreenViewModelState(
+    private data class HomeScreenViewModelStateHolder(
         val movieList: List<Movie> = listOf(),
         val errors: List<String> = listOf(),
     ) {
