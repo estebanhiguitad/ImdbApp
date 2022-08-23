@@ -13,11 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import co.com.esteban.imdbapp.home.model.infraestructure.MovieRepositoryImpl
 import co.com.esteban.imdbapp.home.viewmodel.HomeScreenState
 import co.com.esteban.imdbapp.home.viewmodel.HomeTopRatedMoviesViewModel
+import co.com.esteban.imdbapp.home.viewmodel.HomeTopRatedViewModelFactory
 
 @Composable
 internal fun HomeScreen(
@@ -43,16 +41,6 @@ internal fun HomeScreen(
                 CircularProgressIndicator()
         }
 
-    }
-}
-
-class HomeTopRatedViewModelFactory : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(HomeTopRatedMoviesViewModel::class.java)) {
-            return HomeTopRatedMoviesViewModel(MovieRepositoryImpl()) as T
-        }
-
-        throw IllegalArgumentException("Unknown ViewModel Class")
     }
 }
 

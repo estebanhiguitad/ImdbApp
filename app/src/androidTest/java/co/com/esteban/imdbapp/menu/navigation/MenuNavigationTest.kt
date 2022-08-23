@@ -5,8 +5,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.test.*
+import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.onSiblings
+import androidx.compose.ui.test.printToLog
 import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.assertColor
 import co.com.esteban.imdbapp.ui.theme.IMDBAppTheme
@@ -28,7 +34,6 @@ class MenuNavigationTest {
         // given
         composeRule.setContent {
             IMDBAppTheme {
-
                 // when
                 MenuNavigationBottom(
                     selectedItem = Screen.Home,

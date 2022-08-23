@@ -9,18 +9,26 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import org.junit.After
 import org.junit.Assert.assertNotNull
 import org.junit.Test
 
 class HomeTopRatedMoviesViewModelTest {
 
     @ExperimentalCoroutinesApi
-    @Test
+    @After
+    fun after(){
+        Dispatchers.resetMain()
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test()
     fun getState_fullData_listWithItems() = runTest {
         // Arrange
-        val testDispatcher = UnconfinedTestDispatcher(testScheduler)
+        val testDispatcher = UnconfinedTestDispatcher()
         Dispatchers.setMain(testDispatcher)
 
         val viewModel = HomeTopRatedMoviesViewModel(object : MovieRepository {
