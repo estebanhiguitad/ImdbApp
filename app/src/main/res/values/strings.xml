@@ -27,4 +27,6 @@
     <string name="search_menu_content_description">Search in Main Menu</string>
     <string name="content_description_play_or_stop">Play or stop movie icon</string>
     <string name="content_description_poster_movie">Poster movie</string>
+    <string name="no_data_to_show">There is no data to show</string>
+    <string name="unexpected_error">We have an unexpected error</string>
 </resources>

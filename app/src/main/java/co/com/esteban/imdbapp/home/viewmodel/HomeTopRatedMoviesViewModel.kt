@@ -5,9 +5,6 @@ import androidx.lifecycle.viewModelScope
 import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.home.model.Movie
 import co.com.esteban.imdbapp.home.model.repository.MovieRepository
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -16,7 +13,9 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-internal class HomeTopRatedMoviesViewModel(private val repository: MovieRepository) : ViewModel() {
+internal class HomeTopRatedMoviesViewModel(
+    private val repository: MovieRepository,
+) : ViewModel() {
     private val _state = MutableStateFlow(HomeScreenViewModelStateHolder())
     val state: StateFlow<HomeScreenState> = _state.map {
         it.toUiState()
@@ -26,25 +25,34 @@ internal class HomeTopRatedMoviesViewModel(private val repository: MovieReposito
         getMovies()
     }
 
-    private fun getMovies(dispatcher: CoroutineDispatcher = Dispatchers.Default) {
-        viewModelScope.launch(dispatcher) {
+    private fun getMovies() {
+        viewModelScope.launch {
             try {
                 repository.getTopRated().collect { movieList ->
+                    if (movieList.isEmpty()) {
+                        throw NoDataException()
+                    }
                     _state.update {
                         it.copy(movieList = movieList)
                     }
                 }
-            } catch (e: Exception) {
-                _state.update {
-                    it.copy(errors = listOf(e.message.toString()))
-                }
+            } catch (_: NoDataException) {
+                setErrors(listOf(R.string.no_data_to_show))
+            } catch (_: Exception) {
+                setErrors(listOf(R.string.unexpected_error))
             }
+        }
+    }
+
+    private fun setErrors(errors: List<Int>) {
+        _state.update {
+            it.copy(errors = errors)
         }
     }
 
     private data class HomeScreenViewModelStateHolder(
         val movieList: List<Movie> = listOf(),
-        val errors: List<String> = listOf(),
+        val errors: List<Int> = listOf(),
     ) {
         fun toUiState(): HomeScreenState {
             return when {
@@ -52,7 +60,7 @@ internal class HomeTopRatedMoviesViewModel(private val repository: MovieReposito
                     HomeScreenState.HomeScreenError(errors)
                 }
                 movieList.isEmpty() && errors.isEmpty() -> {
-                    HomeScreenState.HomeScreenLoading()
+                    HomeScreenState.HomeScreenLoading
                 }
                 else -> {
                     HomeScreenState.HomeScreenData(movieList)

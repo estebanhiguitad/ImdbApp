@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
@@ -19,7 +20,11 @@ import co.com.esteban.imdbapp.home.viewmodel.HomeScreenState
 import co.com.esteban.imdbapp.home.viewmodel.HomeTopRatedMoviesViewModel
 
 @Composable
-internal fun HomeScreen(viewModel: HomeTopRatedMoviesViewModel = androidx.lifecycle.viewmodel.compose.viewModel(factory = HomeTopRatedViewModelFactory())) {
+internal fun HomeScreen(
+    viewModel: HomeTopRatedMoviesViewModel = androidx.lifecycle.viewmodel.compose.viewModel(
+        factory = HomeTopRatedViewModelFactory()
+    )
+) {
     val scrollable = rememberScrollState()
     val state by viewModel.state.collectAsState()
     Column(
@@ -29,11 +34,11 @@ internal fun HomeScreen(viewModel: HomeTopRatedMoviesViewModel = androidx.lifecy
     ) {
         HeaderForHomeMenu()
 
-        when (state) {
+        when (val finalState = state) {
             is HomeScreenState.HomeScreenData ->
-                PanelMovieList((state as HomeScreenState.HomeScreenData).movieList)
+                PanelMovieList(finalState.movieList)
             is HomeScreenState.HomeScreenError ->
-                Text((state as HomeScreenState.HomeScreenError).errors.first())
+                Text(stringResource(finalState.errors.first()))
             is HomeScreenState.HomeScreenLoading ->
                 CircularProgressIndicator()
         }
@@ -43,7 +48,7 @@ internal fun HomeScreen(viewModel: HomeTopRatedMoviesViewModel = androidx.lifecy
 
 class HomeTopRatedViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(HomeTopRatedMoviesViewModel::class.java)){
+        if (modelClass.isAssignableFrom(HomeTopRatedMoviesViewModel::class.java)) {
             return HomeTopRatedMoviesViewModel(MovieRepositoryImpl()) as T
         }
 
