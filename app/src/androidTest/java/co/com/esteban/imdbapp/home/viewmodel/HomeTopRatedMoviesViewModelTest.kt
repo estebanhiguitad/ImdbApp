@@ -4,33 +4,24 @@ import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.home.model.Movie
 import co.com.esteban.imdbapp.home.model.MovieBuilder
 import co.com.esteban.imdbapp.home.model.repository.MovieRepository
-import kotlinx.coroutines.Dispatchers
+import co.com.esteban.imdbapp.rules.MainDispatcherRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
-import org.junit.After
 import org.junit.Assert.assertNotNull
+import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class HomeTopRatedMoviesViewModelTest {
 
-    @ExperimentalCoroutinesApi
-    @After
-    fun after(){
-        Dispatchers.resetMain()
-    }
+    @get:Rule
+    var mainDispatcherRule = MainDispatcherRule()
 
-    @ExperimentalCoroutinesApi
     @Test()
     fun getState_fullData_listWithItems() = runTest {
         // Arrange
-        val testDispatcher = UnconfinedTestDispatcher()
-        Dispatchers.setMain(testDispatcher)
-
         val viewModel = HomeTopRatedMoviesViewModel(object : MovieRepository {
             override fun getTopRated(): Flow<List<Movie>> = flow {
                 emit(
@@ -51,13 +42,9 @@ class HomeTopRatedMoviesViewModelTest {
         assertNotNull(movieList.findLast { it.title == "Second Movie" } )
     }
 
-    @ExperimentalCoroutinesApi
     @Test
     fun getState_repositoryError_errorState() = runTest{
         // Arrange
-        val testDispatcher = UnconfinedTestDispatcher(testScheduler)
-        Dispatchers.setMain(testDispatcher)
-
         val viewModel = HomeTopRatedMoviesViewModel(object : MovieRepository {
             override fun getTopRated(): Flow<List<Movie>> = flow {
                 throw Exception("We have an unexpected error")
@@ -73,13 +60,9 @@ class HomeTopRatedMoviesViewModelTest {
         assertNotNull(errors[0] == R.string.unexpected_error )
     }
 
-    @ExperimentalCoroutinesApi
     @Test
     fun getState_emptyList_errorState() = runTest{
         // Arrange
-        val testDispatcher = UnconfinedTestDispatcher(testScheduler)
-        Dispatchers.setMain(testDispatcher)
-
         val viewModel = HomeTopRatedMoviesViewModel(object : MovieRepository {
             override fun getTopRated(): Flow<List<Movie>> = flow {
                 emit(listOf())
