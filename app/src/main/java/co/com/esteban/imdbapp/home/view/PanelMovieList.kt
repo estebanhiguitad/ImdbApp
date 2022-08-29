@@ -1,10 +1,22 @@
 package co.com.esteban.imdbapp.home.view
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material.Divider
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Info
@@ -12,12 +24,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.home.model.Movie
+import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
 fun PanelMovieList(movieTopList: List<Movie>) {
@@ -48,8 +60,8 @@ private fun CardVerticalMovie(
 ) {
     Card {
         Column {
-            Image(
-                painter = painterResource(movie.poster),
+            GlideImage(
+                imageModel = "https://image.tmdb.org/t/p/w500${movie.poster}",
                 contentDescription = movie.contentDescription,
                 modifier = Modifier.height(200.dp),
                 contentScale = ContentScale.Inside
