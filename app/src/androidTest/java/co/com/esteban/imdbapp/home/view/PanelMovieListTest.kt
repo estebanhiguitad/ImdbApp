@@ -3,8 +3,18 @@ package co.com.esteban.imdbapp.home.view
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.test.*
+import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertHeightIsEqualTo
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertWidthIsEqualTo
+import androidx.compose.ui.test.captureToImage
+import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onChildAt
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onParent
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.onSiblings
 import androidx.compose.ui.unit.dp
 import co.com.esteban.imdbapp.R
 import co.com.esteban.imdbapp.assertColor
@@ -60,7 +70,7 @@ class PanelMovieListTest {
     }
 
     @Test
-    fun testLstSizeIs3() {
+    fun testListSizeIs3() {
         composeRule.setContent {
             IMDBAppTheme {
                 PanelMovieList(

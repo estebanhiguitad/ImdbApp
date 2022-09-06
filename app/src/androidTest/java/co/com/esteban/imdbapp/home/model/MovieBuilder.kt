@@ -1,16 +1,14 @@
 package co.com.esteban.imdbapp.home.model
 
-import co.com.esteban.imdbapp.R
-
 class MovieBuilder {
     private var title: String = "Stranger things"
     private var rate: String = "5.0"
-    private var poster: Int = R.drawable.stranger_things_poster
+    private var poster: String = "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
     private var contentDescription: String = "It is a tv show"
 
     fun withTitle(title: String): MovieBuilder {
         this.title = title
-        return  this@MovieBuilder
+        return this@MovieBuilder
     }
 
     fun build(): Movie = Movie(title, rate, poster, contentDescription)
