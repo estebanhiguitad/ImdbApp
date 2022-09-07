@@ -26,13 +26,15 @@ internal fun TextFieldsInForm(
         textUserValue,
         stringResource(R.string.user_label),
         modifier = Modifier.padding(bottom = 20.dp),
-        onTextFieldValueChange = onUserValueChange
+        onTextFieldValueChange = onUserValueChange,
+        "Input Content Description for User"
     )
     TextFieldWithSeparatedLabel(
         textPasswordValue,
         stringResource(R.string.password_label),
         modifier = Modifier.padding(bottom = 10.dp),
-        onTextFieldValueChange = onPasswordValueChange
+        onTextFieldValueChange = onPasswordValueChange,
+        "Input Content Description"
     )
 }
 
